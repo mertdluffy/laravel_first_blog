@@ -26,9 +26,10 @@
                     <x-dropdown-item href="/admin/posts"
                     >All Posts</x-dropdown-item>
                     @endif
+
+                    <x-dropdown-item href="/profile" >My Profile</x-dropdown-item>
                     <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()"
                     >Log Out</x-dropdown-item>
-
 
 
                     <form id="logout-form" method="POST" action="/logout" class="hidden">

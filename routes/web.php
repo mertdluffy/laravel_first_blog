@@ -7,7 +7,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\AdminPostController;
-
+use App\Http\Controllers\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,5 @@ Route::get('admin/posts/{post}/edit',[AdminPostController::class,'edit'])->middl
 Route::patch('admin/posts/{post}',[AdminPostController::class,'update'])->middleware('admin');
 Route::delete('admin/posts/{post}',[AdminPostController::class,'destroy'])->middleware('admin');
 
+Route::get('profile', [UserController::class, 'show'])->middleware('auth');
 

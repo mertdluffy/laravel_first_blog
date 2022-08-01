@@ -30,7 +30,7 @@ class AdminPostController extends Controller
             'body' => 'required',
             'category_id' => ['required', Rule::exists('categories','id')]
         ]);
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+
         $attributes['user_id'] =auth()->id();
 
         Post::create($attributes);
