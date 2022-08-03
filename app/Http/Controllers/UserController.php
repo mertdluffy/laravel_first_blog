@@ -9,10 +9,14 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function show(){
-        return view("personal.profile",[
+    public function show($mode){
+        return view("profile.$mode",[
             'comments' => Comment::all()->where('user_id',auth()->user()->id),
-            'posts' => Post::all()->where('user_id',auth()->user()->id)
+            'posts' => Post::latest()
+                ->filter(request(['search','category','author']))
+                ->where('user_id',auth()->user()->id)
+                ->with('category','author')->paginate(6)
+
         ]);
     }
 }

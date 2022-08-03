@@ -45,5 +45,4 @@ Route::get('admin/posts/{post}/edit',[AdminPostController::class,'edit'])->middl
 Route::patch('admin/posts/{post}',[AdminPostController::class,'update'])->middleware('admin');
 Route::delete('admin/posts/{post}',[AdminPostController::class,'destroy'])->middleware('admin');
 
-Route::get('profile', [UserController::class, 'show'])->middleware('auth');
-
+Route::get('profile/{mode}', [UserController::class, 'show'])->middleware('auth');
