@@ -46,3 +46,4 @@ Route::patch('admin/posts/{post}',[AdminPostController::class,'update'])->middle
 Route::delete('admin/posts/{post}',[AdminPostController::class,'destroy'])->middleware('admin');
 
 Route::get('profile/{mode}', [UserController::class, 'show'])->middleware('auth');
+Route::post('vote/{comment}/{user}/{mode}', [PostCommentsController::class, 'update'])->middleware('auth');

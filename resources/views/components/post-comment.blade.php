@@ -17,6 +17,17 @@
             </p>
         </div>
     </article>
-
+    <div style="display: flex; align-items: flex-end; justify-content: left;">
+        <h1>{{$comment->positive_votes}}</h1>
+        <form method ="POST" action="/vote/{{$comment->id}}/{{auth()->user()->id}}/0">
+            @csrf
+            <button class="mx-4" ><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Facebook_like_thumb.png" width="30" height="30" alt="" ></button>
+        </form>
+        <form method ="POST" action="/vote/{{$comment->id}}/{{auth()->user()->id}}/1">
+            @csrf
+            <button class="mx-4" ><img style ="transform: rotate(180deg);" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Facebook_like_thumb.png" width="30" height="30" alt="" ></button>
+        </form>
+        <h1>{{$comment->negative_votes}}</h1>
+    </div>
 </x-panel>
 
