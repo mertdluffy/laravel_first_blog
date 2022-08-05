@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('negative_votes');
             $table->integer('positive_votes');
+            $table->text('voters');
         });
     }
 
